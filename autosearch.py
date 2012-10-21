@@ -118,10 +118,12 @@ class AutoSearch:
 	def searchAround(self,x,y,size):
 		for j in range(y-size,y+size):
 			for i in range(x-size,x+size):
-				print self.array[x][y]
-				if (self.array[x][y] != 0):
-					return true
-		return false
+				a = min(len(self.array)-1, max(i, 0))
+				b = min(len(self.array[0])-1, max(j, 0))
+				print self.array[a][b]
+				if (self.array[a][b] != 0):
+					return True
+		return False
 						
 	def __arrayCoordToGps(self,x,y):
 		return metersToGps(x)+self.left_bound, metersToGps(y)+self.bottom_bound
