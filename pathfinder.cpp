@@ -11,9 +11,12 @@ from scipy import *
 #include "SkynetController.h"
 #include "TelemetryStructures.h"
 #include "GeoReference.h"
+#include "Pathfinder.h"
 
 include <math.h>
 include <limits.h>
+include <stdio.h>
+include <stdlib.h>
 
 using namespace System;
 using namespace System::Threading;
@@ -30,8 +33,19 @@ using namespace Intelligence;
 #define FIELD_BORDER = 20 // In meters, the closest the plane should ever get to the edge of the field
 
 ref class PathFinder { 
-public:   
-Pathfinder(Autosearch^ autosearch)::autosearch(autosearch) {}   
-vector<GPSCoord> buildPath(){ 
+	public:   
+	Pathfinder(Autosearch^ autosearch)::autosearch(autosearch) {}
+	
+	vector<GPSCoord> buildPath() {
+		widthMeters = (int)autosearch->width_meters;
+	}
+
 private:
-Autosearch ^ autoseach; }
+	Autosearch ^ autosearch;
+	int widthMeters;
+	int heightMeters;
+
+	CreateFile(vector<GPSCoord> path, Autosearch ^ autosearch, String filename) {
+		//File ^f = fopen(filename, "w");
+	}
+}
